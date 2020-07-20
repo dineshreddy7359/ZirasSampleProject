@@ -1,0 +1,20 @@
+/******************
+Color Blue
+******************/
+
+@include mat-core();
+$blue-app-primary: mat-palette($mat-blue);
+$blue-app-accent: mat-palette($mat-indigo, A200, A100, A400);
+$blue-app-warn: mat-palette($mat-pink);
+$blue-app-theme: mat-light-theme($blue-app-primary, $blue-app-accent, $blue-app-warn);
+$themecolor: #2196f3;
+$themecolor-alt: #2196f3;
+$white: #fff;
+#sidebar {
+    background-color: $themecolor-alt;
+    color: $white;
+}
+footer {
+    color: $white;
+    background-color: $themecolor-alt;
+}

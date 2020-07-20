@@ -1,0 +1,23 @@
+<!-- <p>header works!</p> -->
+<div>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button>
+            <mat-icon>home</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button>
+            <mat-icon>notifications</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button>
+            <mat-icon>settings</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button (click)="logout()">
+            <mat-icon>account_circle</mat-icon>
+        </button>
+    </a>
+</div>

@@ -1,0 +1,38 @@
+/*********************
+Main Styles And Import Other Styles
+*********************/
+
+// @import '~themify-icons/css/themify-icons.css';
+@import '~font-awesome/css/font-awesome.css';
+@import 'variable';
+@import 'app';
+
+/* Dark Theme */
+// @import 'colors/dark';
+// .dark {  
+//     @include angular-material-theme($dark-theme); 
+// }
+
+/* Red Theme */
+// @import 'colors/red';
+// .danger {  
+//     @include angular-material-theme($red-app-theme);
+// }
+
+/* Green Theme */
+// @import 'colors/green';
+// .green {  
+//     @include angular-material-theme($green-app-theme);
+// }
+
+/* Purple Theme */
+// @import 'colors/purple';
+// .purple {
+//     @include angular-material-theme($purple-app-theme);
+// }
+
+/* Blue Theme */
+@import 'colors/blue';
+.blue {  
+    @include angular-material-theme($blue-app-theme);
+}

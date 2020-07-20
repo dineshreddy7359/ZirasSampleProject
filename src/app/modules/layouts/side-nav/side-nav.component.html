@@ -1,0 +1,24 @@
+<!-- <p>side-nav works!</p> -->
+<mat-list>
+    <div class="sidebar-title" *ngIf="!isMenuOpen">John Doe</div>
+    <div class="m-t-10">
+        <mat-list-item>
+            <button class="menu-item button-align" [ngStyle]="{ 'border-radius': buttonRadius }" mat-flat-button>
+                <mat-icon>dashboard</mat-icon>
+                <span class="list-item-text" [ngStyle]="{'display': isMenuOpen ? 'none' : ''}">Dashboard</span>
+            </button>
+        </mat-list-item>
+        <mat-list-item>
+            <button class="menu-item button-align" [ngStyle]="{ 'border-radius': buttonRadius }" mat-flat-button>
+                <mat-icon>work</mat-icon>
+                <span class="list-item-text" [ngStyle]="{'display': isMenuOpen ? 'none' : ''}">Project</span>
+            </button>
+        </mat-list-item>
+        <mat-list-item>
+            <button class="menu-item button-align" [ngStyle]="{ 'border-radius': buttonRadius }" mat-flat-button>
+                <mat-icon>settings_application</mat-icon>
+                <span class="list-item-text" [ngStyle]="{'display': isMenuOpen ? 'none' : ''}">Settings</span>
+            </button>
+        </mat-list-item>
+    </div>
+</mat-list>

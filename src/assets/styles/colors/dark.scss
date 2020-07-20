@@ -1,0 +1,20 @@
+/******************
+Color Dark
+******************/
+
+@include mat-core();
+$dark-primary: mat-palette($mat-deep-orange);
+$dark-accent:  mat-palette($mat-indigo, A200, A100, A400);
+$dark-warn: mat-palette($mat-pink);
+$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$themecolor: #ff5722;
+$themecolor-alt: #ff5722;
+$white: #fff;
+#sidebar {
+    background-color: $themecolor-alt;
+    color: $white;
+}
+footer {
+    color: $white;
+    background-color: $themecolor-alt;
+}
