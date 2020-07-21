@@ -1,24 +1,36 @@
 <!-- <p>side-nav works!</p> -->
-<mat-list>
-    <div class="sidebar-title" *ngIf="!isMenuOpen">John Doe</div>
+<mat-nav-list>
+    <div class="sidebar-title" *ngIf="isExpanded">John Doe</div>
     <div class="m-t-10">
+        <mat-list-item routerLink="/dashboard" routerLinkActive="selected">
+            <mat-icon mat-list-icon >account_circle</mat-icon>
+            <span matLine *ngIf="isExpanded">Name</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
         <mat-list-item>
-            <button class="menu-item button-align" [ngStyle]="{ 'border-radius': buttonRadius }" mat-flat-button>
-                <mat-icon>dashboard</mat-icon>
-                <span class="list-item-text" [ngStyle]="{'display': isMenuOpen ? 'none' : ''}">Dashboard</span>
-            </button>
+            <mat-icon mat-list-icon>inbox</mat-icon>
+            <span matLine *ngIf="isExpanded">Inbox</span>
         </mat-list-item>
         <mat-list-item>
-            <button class="menu-item button-align" [ngStyle]="{ 'border-radius': buttonRadius }" mat-flat-button>
-                <mat-icon>work</mat-icon>
-                <span class="list-item-text" [ngStyle]="{'display': isMenuOpen ? 'none' : ''}">Project</span>
-            </button>
+            <mat-icon mat-list-icon>star</mat-icon>
+            <span matLine *ngIf="isExpanded">Starred</span>
         </mat-list-item>
         <mat-list-item>
-            <button class="menu-item button-align" [ngStyle]="{ 'border-radius': buttonRadius }" mat-flat-button>
-                <mat-icon>settings_application</mat-icon>
-                <span class="list-item-text" [ngStyle]="{'display': isMenuOpen ? 'none' : ''}">Settings</span>
-            </button>
+            <mat-icon mat-list-icon>drafts</mat-icon>
+            <span matLine *ngIf="isExpanded">Drafts</span>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+        <mat-list-item>
+            <mat-icon mat-list-icon>mail</mat-icon>
+            <span matLine *ngIf="isExpanded">All Mail</span>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon mat-list-icon>delete</mat-icon>
+            <span matLine *ngIf="isExpanded">Trash</span>
+        </mat-list-item>
+        <mat-list-item>
+            <mat-icon mat-list-icon>warning</mat-icon>
+            <span matLine *ngIf="isExpanded">Spam</span>
         </mat-list-item>
     </div>
-</mat-list>
+</mat-nav-list>

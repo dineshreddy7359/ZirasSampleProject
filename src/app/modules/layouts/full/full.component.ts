@@ -9,9 +9,7 @@ import { User } from 'src/app/models/user';
 })
 export class FullComponent implements OnInit {
 
-  isMenuOpen: boolean = true;
-  contentMargin: number = 70;
-  buttonRadius: any = 50;
+  isExpanded: boolean = false;
   currentUser: User;
 
   constructor(
@@ -23,15 +21,8 @@ export class FullComponent implements OnInit {
   ngOnInit() {
   }
 
-  onToolbarMenuToggle() {
-    this.isMenuOpen = !this.isMenuOpen;
-    if(!this.isMenuOpen) {
-      this.contentMargin = 250;
-      this.buttonRadius = `${5} px`;
-    } else {
-      this.contentMargin = 70;
-      this.buttonRadius = `${50} %`;
-    }
+  onSidenavToggle() {
+    this.isExpanded = !this.isExpanded;
   }
 
 }

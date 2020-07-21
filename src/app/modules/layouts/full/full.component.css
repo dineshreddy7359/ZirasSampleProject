@@ -12,6 +12,10 @@
     flex: 1 1 auto;
 }
 
+.toolbar-shade {
+    z-index: 3;
+}
+
 #sidebar {
     display: flex;
     height: 100%;
@@ -20,14 +24,7 @@
     transform: translate3d(0, 0, 0) !important;
     visibility: visible !important;
     overflow-y: auto;
-}
-
-#sidebar.menu-close {
-    width: 250px;
-}
-
-#sidebar.menu-open {
-    width: 70px;
+    transition: 0.5s;
 }
 
 .main-content {

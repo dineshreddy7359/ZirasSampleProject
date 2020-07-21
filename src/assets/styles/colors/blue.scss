@@ -10,9 +10,28 @@ $blue-app-theme: mat-light-theme($blue-app-primary, $blue-app-accent, $blue-app-
 $themecolor: #2196f3;
 $themecolor-alt: #2196f3;
 $white: #fff;
+$grey: #777879;
+$yellow: #EEEE00;
+$selected: #151414;
+$hover: #cccccc;
 #sidebar {
-    background-color: $themecolor-alt;
+    background-color: $grey;
     color: $white;
+    .mat-list-item .mat-list-icon {
+        background: $yellow;
+        color: $white;
+    }
+    .mat-list-text {
+        color: $white;
+    }
+    .selected {
+        background: $selected;
+        border-radius: 10px;
+    }
+    .mat-nav-list .mat-list-item:hover {
+        background: $hover;
+        border-radius: 10px;
+    }
 }
 footer {
     color: $white;
