@@ -6,6 +6,7 @@ import { UserService } from './../../services/user.service';
 import { ToastrMessageModel } from 'src/app/toastr.model';
 import { MESSAGE_TYPE_SUCCESS, MESSAGE_TYPE_ERROR } from 'src/app/app-config/app.constants';
 import { AlertService } from 'src/app/services/alert.service';
+import { LoaderService } from 'src/app/shared/loader/loader.service';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,8 @@ export class RegisterComponent implements OnInit {
     private router: Router,
     private authenticationService: AuthenticationService,
     private userService: UserService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private loaderService: LoaderService
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -47,10 +49,13 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
+    this.loaderService.startLoader();
     this.userService.register(this.registerForm.value).subscribe((data) => {
+      this.loaderService.stop();
       this.successMessage('Successfully Registered!.....');
       this.router.navigate(['/login']);
     }, (error) => {
+      this.loaderService.stop();
       this.errorMessage('Failed to register!.....');
     });
   }

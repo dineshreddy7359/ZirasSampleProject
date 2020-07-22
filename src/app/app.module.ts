@@ -17,7 +17,6 @@ import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { AlertService } from './services/alert.service';
-import { ChartistModule } from 'ng-chartist';
 import { HeaderComponent } from './modules/layouts/header/header.component';
 import { FooterComponent } from './modules/layouts/footer/footer.component';
 import { SideNavComponent } from './modules/layouts/side-nav/side-nav.component';
@@ -25,6 +24,7 @@ import { FullComponent } from './modules/layouts/full/full.component';
 import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { LoginComponent } from './modules/login/login.component';
+import { SharedModule } from './shared/shared.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -54,7 +54,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppConfigModule,
     NgxDatatableModule,
     ToastrModule.forRoot(),
-    ChartistModule
+    SharedModule
   ],
   providers: [
     {

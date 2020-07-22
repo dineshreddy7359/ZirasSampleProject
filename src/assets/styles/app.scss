@@ -949,18 +949,23 @@ table
     text-align: left;
 }
 
-.table-rasponsive {
+.table-responsive {
     overflow: auto;
     .mat-table {
         min-width: 280px;
     }
     .mat-header-row {
+        background: $table-header-row;
         .mat-header-cell {
             white-space: nowrap;
         }
     }
     .mat-cell {
         white-space: nowrap;
+    }
+    .mat-sort-header-button {
+        font: initial;
+        color: black;
     }
 }
 
@@ -1046,16 +1051,16 @@ chat widget
                     width: 10px;
                 }
                 .online {
-                    background: $success;
+                    background: $online;
                 }
                 .busy {
-                    background: $danger;
+                    background: $busy;
                 }
                 .away {
-                    background: $warning;
+                    background: $away;
                 }
                 .offline {
-                    background: $warning;
+                    background: $offline;
                 }
             }
             .mail-contnet {

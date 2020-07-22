@@ -1,4 +1,5 @@
 <!-- <p>dashboard works!</p> -->
+<app-card-spinner></app-card-spinner>
 <div fxLayout="row wrap">
     <div fxFlex.gt-lg="50" fxFlex.gt-md="50" fxFlex.gt-xs="100" fxFlex="100">
         <mat-card class="overflow-hidden text-center little-profile">
@@ -38,7 +39,6 @@
             </div>
             <div class="message-box contact-box p-20">
                 <div class="message-widget contact-widget">
-                    <!-- Message 1 -->
                     <a href="#">
                         <div class="user-img"> <img src="assets/images/users/1.jpg" alt="user"
                                 class="img-circle"> <span class="profile-status online pull-right"></span> </div>
@@ -46,7 +46,6 @@
                             <h5>Pavan kumar</h5> <span class="mail-desc">info@wrappixel.com</span>
                         </div>
                     </a>
-                    <!-- Message 2 -->
                     <a href="#">
                         <div class="user-img"> <img src="assets/images/users/2.jpg" alt="user"
                                 class="img-circle"> <span class="profile-status busy pull-right"></span> </div>
@@ -54,7 +53,6 @@
                             <h5>Sonu Nigam</h5> <span class="mail-desc">pamela1987@gmail.com</span>
                         </div>
                     </a>
-                    <!-- Message 3 -->
                     <a href="#">
                         <div class="user-img"> <img src="assets/images/users/4.jpg" alt="user"
                                 class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
@@ -62,15 +60,13 @@
                             <h5>Pavan kumar</h5> <span class="mail-desc">kat@gmail.com</span>
                         </div>
                     </a>
-                    <!-- Message 4 -->
                     <a href="#">
                         <div class="user-img"> <img src="assets/images/users/5.jpg" alt="user"
-                                class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
+                                class="img-circle"> <span class="profile-status away pull-right"></span> </div>
                         <div class="mail-contnet">
                             <h5>Andrew</h5> <span class="mail-desc">and@gmail.com</span>
                         </div>
                     </a>
-                    <!-- Message 5 -->
                     <a href="#">
                         <div class="user-img"> <img src="assets/images/users/6.jpg" alt="user"
                                 class="img-circle"> <span class="profile-status offline pull-right"></span> </div>
@@ -86,7 +82,6 @@
     <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
         <mat-card>
             <mat-tab-group>
-                <!-- Tab 1 -->
                 <mat-tab label="Activity">
                     <mat-card-content>
                         <div class="display-flex">
@@ -143,7 +138,7 @@
                         </div>
                     </mat-card-content>
                 </mat-tab>
-                <!-- Tab 2 -->
+
                 <mat-tab label="Profile">
                     <mat-card-content>
                         <mat-card-title>Form Basic Layouts</mat-card-title>
@@ -186,6 +181,45 @@
                     </mat-card-content>
                 </mat-tab>
             </mat-tab-group>
+        </mat-card>
+    </div>
+
+    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <mat-table class="table-responsive" [dataSource]="dataSource" matSort>
+                <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="progress">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Progress </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.progress}}% </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+                <mat-cell *matCellDef="let row"> {{row.name}} </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="color">
+                <mat-header-cell *matHeaderCellDef mat-sort-header> Color </mat-header-cell>
+                <mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </mat-cell>
+                </ng-container>
+                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+            </mat-table>
+            <mat-error *ngIf="dataSource && dataSource.data.length == 0" class="text-center p-t-10">No data to display</mat-error>
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+        </mat-card>
+    </div>
+
+    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <div id="columnChart" style="height: 370px; width: 100%; margin-left: auto; margin-right: auto;"></div>
+        </mat-card>
+    </div>
+
+    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+        <mat-card>
+            <div id="pieChart" style="height: 370px; width: 100%; margin-left: auto; margin-right: auto;"></div>
         </mat-card>
     </div>
 </div>

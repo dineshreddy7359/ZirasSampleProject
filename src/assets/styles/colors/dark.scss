@@ -3,10 +3,10 @@ Color Dark
 ******************/
 
 @include mat-core();
-$dark-primary: mat-palette($mat-deep-orange);
-$dark-accent:  mat-palette($mat-indigo, A200, A100, A400);
-$dark-warn: mat-palette($mat-pink);
-$dark-theme: mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+$dark-app-primary: mat-palette($mat-deep-orange);
+$dark-app-accent:  mat-palette($mat-indigo, A200, A100, A400);
+$dark-app-warn: mat-palette($mat-pink);
+$dark-app-theme: mat-dark-theme($dark-app-primary, $dark-app-accent, $dark-app-warn);
 $themecolor: #ff5722;
 $themecolor-alt: #ff5722;
 $white: #fff;
@@ -31,6 +31,24 @@ $hover: #cccccc;
     .mat-nav-list .mat-list-item:hover {
         background: $hover;
         border-radius: 10px;
+    }
+    .submenu {
+        overflow-y: hidden;
+        transition: transform 300ms ease;
+        transform: scaleY(0);
+        transform-origin: top;
+        padding-left: 30px;
+    }
+    .submenu.expanded {
+        transform: scaleY(1);
+    }
+    .menu-button {
+        transition: 300ms ease-in-out;
+        transform: rotate(0deg);
+        color: $white;
+    }
+    .menu-button.rotated {
+        transform: rotate(180deg);
     }
 }
 footer {

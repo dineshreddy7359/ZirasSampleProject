@@ -1,5 +1,5 @@
 <!-- <p>full works!</p> -->
-<div class="main-container" fxLayout="column" [ngClass]="{'danger': false, 'purple': false, 'blue': true, 'green': false, 'dark': false}">
+<div class="main-container" fxLayout="column" [ngClass]="{'purple': false, 'blue': true, 'red': false, 'green': false, 'dark': false}">
     <mat-toolbar class="toolbar-shade" color="primary">
 		<mat-toolbar-row>
             <span>
@@ -30,7 +30,7 @@
         </mat-sidenav>
 		<mat-sidenav #sidebar id="sidebar" mode="side" opened="true" (mouseenter)="onSidenavToggle()" (mouseleave)="onSidenavToggle()">
 			<perfect-scrollbar>
-                <app-side-nav [isExpanded]="isExpanded"></app-side-nav>
+                <app-side-nav [isExpanded]="isExpanded" [showSubMenu]="showSubMenu" [showSubSubMenu]="showSubSubMenu"></app-side-nav>
             </perfect-scrollbar>
 		</mat-sidenav>
 		<mat-sidenav-content class="main-content">

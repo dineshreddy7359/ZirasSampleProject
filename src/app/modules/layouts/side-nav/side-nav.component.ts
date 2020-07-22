@@ -7,7 +7,9 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class SideNavComponent implements OnInit {
 
-  @Input() isExpanded: any;
+  @Input() isExpanded: boolean;
+  @Input() showSubMenu: boolean;
+  @Input() showSubSubMenu: boolean;
 
   constructor() { }
 

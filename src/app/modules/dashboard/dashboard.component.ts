@@ -1,22 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import * as Chartist from 'chartist';
-import { ChartType, ChartEvent } from 'ng-chartist';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import * as CanvasJS from './../../../assets/scripts/canvasjs.min';
+import { COLORS, NAMES } from './../../app-config/app.constants';
 
-const data = {
-	"Bar": {
-	  "labels": ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
-	  "series": [[9, 4, 11, 7, 10, 12], [3, 2, 9, 5, 8, 10]]
-	},
-	"Pie": {
-	  "series": [20, 10, 30, 40]
-	}
-}
-export interface Chart {
-	type: ChartType;
-	data: Chartist.IChartistData;
-	options?: any;
-	responsiveOptions?: any;
-	events?: ChartEvent;
+export interface UserData {
+  id: string;
+  name: string;
+  progress: string;
+  color: string;
 }
 
 @Component({
@@ -26,54 +19,95 @@ export interface Chart {
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  ngOnInit() {
+  displayedColumns = ['id', 'name', 'progress', 'color'];
+  dataSource: MatTableDataSource<UserData>;
+
+  constructor() {
+    const users: UserData[] = [];
+    for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
+    // Assign the data to the data source for the table to render
+    this.dataSource = new MatTableDataSource(users);
   }
 
-  // Barchart
-	barChart1: Chart = {
-		type: 'Bar',
-		data: data['Bar'],
-		options: {
-			seriesBarDistance: 15,
-			high: 12,
+  ngOnInit() {
+    let chart1 = new CanvasJS.Chart("columnChart", {
+      theme: "light2",
+      animationEnabled: true,
+      exportEnabled: true,
+      title: {
+        text: "Basic Column Chart in Angular"
+      },
+      data: [{
+        type: "column",
+        dataPoints: [
+          { y: 71, label: "Apple" },
+          { y: 55, label: "Mango" },
+          { y: 50, label: "Orange" },
+          { y: 65, label: "Banana" },
+          { y: 95, label: "Pineapple" },
+          { y: 68, label: "Pears" },
+          { y: 28, label: "Grapes" },
+          { y: 34, label: "Lychee" },
+          { y: 14, label: "Jackfruit" }
+        ]
+      }]
+    });
+      
+    chart1.render();
 
-			axisX: {
-				showGrid: false,
-				offset: 20
-			},
-			axisY: {
-				showGrid: true,
-				offset: 40
-			},
-			height: 360
-		},
+    let chart2 = new CanvasJS.Chart("pieChart", {
+      theme: "light2",
+      animationEnabled: true,
+      exportEnabled: true,
+      title:{
+        text: "Basic Pie Chart in Angular"
+      },
+      data: [{
+        type: "pie",
+        showInLegend: true,
+        toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
+        indexLabel: "{name} - #percent%",
+        dataPoints: [
+          { y: 450, name: "Food" },
+          { y: 120, name: "Insurance" },
+          { y: 300, name: "Traveling" },
+          { y: 800, name: "Housing" },
+          { y: 150, name: "Education" },
+          { y: 150, name: "Shopping"},
+          { y: 250, name: "Others" }
+        ]
+      }]
+    });
+      
+    chart2.render();
+  }
 
-		responsiveOptions: [
-			[ 
-				'screen and (min-width: 640px)',
-				{
-					axisX: {
-						labelInterpolationFnc: function(value: number,index: number): string {
-							return index % 1 === 0 ? `${value}` : '';
-						}
-					}
-				}
-			]
-		]
-	};
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
 
-	// This is for the donute chart
-	donuteChart1: Chart = {
-		type: 'Pie',
-		data: data['Pie'],
-		options: {
-			donut: true,
-			height: 260,
-			showLabel: false,
-			donutWidth: 20
-		}
-	};
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
+  }
 
+}
+
+/** Builds and returns a new User. */
+function createNewUser(id: number): UserData {
+  const name =
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
+      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
+
+  return {
+    id: id.toString(),
+    name: name,
+    progress: Math.round(Math.random() * 100).toString(),
+    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
+  };
 }

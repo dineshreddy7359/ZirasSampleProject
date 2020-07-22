@@ -5,6 +5,7 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { ToastrMessageModel } from 'src/app/toastr.model';
 import { MESSAGE_TYPE_SUCCESS, MESSAGE_TYPE_ERROR } from 'src/app/app-config/app.constants';
 import { AlertService } from 'src/app/services/alert.service';
+import { LoaderService } from 'src/app/shared/loader/loader.service';
 
 @Component({
   selector: 'app-login',
@@ -19,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private authenticationService: AuthenticationService,
-    private alertService: AlertService
+    private alertService: AlertService,
+    private loaderService: LoaderService
   ) {
     // redirect to home if already logged in
     if (this.authenticationService.currentUserValue) {
@@ -37,11 +39,14 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
+    this.loaderService.startLoader();
     const loginFormValues = this.loginForm.value;
     this.authenticationService.login(loginFormValues.userName, loginFormValues.password).subscribe((data) => {
+      this.loaderService.stop();
       this.successMessage('Successfully Logged In!.....');
       this.router.navigate(['/dashboard']);
     }, (error) => {
+      this.loaderService.stop();
       this.errorMessage('Failed to login! UnAuthorised!.....');
     });
   }
