@@ -15,8 +15,8 @@ export class CardSpinnerComponent implements OnDestroy {
     
     public isSpinnerVisible = true;
 
-    @Input() public backgroundColor = 'rgba(0, 115, 170, 0.69)';
-    @Input() public message = 'Please wait...';
+    @Input() public backgroundColor = '#0073AA';
+    @Input() public message = 'Please wait loading...';
 
     constructor() { }
 

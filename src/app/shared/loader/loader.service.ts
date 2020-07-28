@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { LoaderModel } from './loader';
+import { LoaderModel } from './loader.model';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +18,7 @@ export class LoaderService {
       data = new LoaderModel();
       data.isLoading = true;
       data.pageLoad = true;
-      data.message = 'Please wait...';
+      data.message = 'Please wait loading...';
     }
     this.isLoading = true;
     this.loader.next(data);
