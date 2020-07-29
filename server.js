@@ -1,19 +1,19 @@
 const app = require('./src/app/server/app');
-const http = require('http');
-const ip = require('quick-local-ip');
-const dns = require('dns');
-const address = require('address');
+// const http = require('http');
+// const ip = require('quick-local-ip');
+// const dns = require('dns');
+// const address = require('address');
+const config = require('./config');
 
 /* Create port and host */
-var host = process.env.IPADDRESS || '127.0.0.1';
-var port = normalizePort(process.env.PORT || '3000');
+var host = config.HOST || '127.0.0.1';
+var port = normalizePort(config.PORT || '3000');
 app.set('port', port);
 
 process.on('uncaughtException', (err) => {
     console.log('uncaughtException', err);
 });
 
-/* Listening to ipaddress. */
 /* Create HTTP server. */
 var server = app.listen(port, host, () => {
     console.log('server running at http://' + host + ':' + port);
@@ -24,7 +24,7 @@ server.on('error', onError);
 server.on('listening', onListening);
 
 app.use((req, res, next) => {
-    res.send('Express Server Side API is Up and Working Fine!...');
+    res.send('Express, Server Side API is Up and Working Fine!...');
 });
 
 // var server;

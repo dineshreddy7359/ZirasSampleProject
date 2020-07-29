@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "startServer": "set NODE_ENV=development && nodemon server.js"
+    "startServer": "set NODE_ENV=production && nodemon server.js",
+    "startDevServer": "set NODE_ENV=development && nodemon server.js"
   },
   "private": true,
   "dependencies": {
