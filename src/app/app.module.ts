@@ -17,15 +17,15 @@ import { AuthenticationService } from './services/authentication.service';
 import { AuthGuardService } from './services/auth-guard.service';
 import { UserService } from './services/user.service';
 import { AlertService } from './services/alert.service';
-import { HeaderComponent } from './modules/layouts/header/header.component';
-import { FooterComponent } from './modules/layouts/footer/footer.component';
-import { SideNavComponent } from './modules/layouts/side-nav/side-nav.component';
-import { FullComponent } from './modules/layouts/full/full.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
-import { RegisterComponent } from './modules/register/register.component';
-import { LoginComponent } from './modules/login/login.component';
+import { HeaderComponent } from './layouts/header/header.component';
+import { FooterComponent } from './layouts/footer/footer.component';
+import { SideNavComponent } from './layouts/side-nav/side-nav.component';
+import { FullComponent } from './layouts/full/full.component';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 import { SharedModule } from './shared/shared.module';
 import { LoaderModule } from './shared/loader/loader.module';
+import { DashboardModule } from './modules/dashboard/dashboard.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -39,7 +39,6 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HeaderComponent,
     FooterComponent,
     SideNavComponent,
-    DashboardComponent,
     FullComponent
   ],
   imports: [
@@ -56,7 +55,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgxDatatableModule,
     ToastrModule.forRoot(),
     SharedModule,
-    LoaderModule
+    LoaderModule,
+    DashboardModule
   ],
   providers: [
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
