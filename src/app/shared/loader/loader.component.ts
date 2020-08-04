@@ -10,17 +10,15 @@ import { LoaderService } from 'src/app/shared/loader/loader.service';
 })
 export class LoaderComponent implements OnInit, OnDestroy {
 
-  @Input() public isLoading: boolean;
-  @Input() public pageLoad: boolean;
-  @Input() public message = 'Please wait loading...';
+  @Input() public isLoading: boolean = false;
+  @Input() public pageLoad: boolean = false;
+  @Input() public message: string = 'Please wait loading...';
 
   Subscription: Subscription;
 
   constructor(private loaderService: LoaderService,
     private cdRef: ChangeDetectorRef
-  ) { }
-
-  ngOnInit() {
+  ) {
     this.Subscription = this.loaderService.loader$.subscribe(data => {
       if(this.isLoading !== data.isLoading) {
         this.isLoading = data.isLoading;
@@ -29,6 +27,9 @@ export class LoaderComponent implements OnInit, OnDestroy {
       this.message = data.message;
       this.pageLoad = data.pageLoad;
     });
+  }
+
+  ngOnInit() {
   }
 
   ngOnDestroy() {

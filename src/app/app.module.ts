@@ -25,6 +25,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { RegisterComponent } from './modules/register/register.component';
 import { LoginComponent } from './modules/login/login.component';
 import { SharedModule } from './shared/shared.module';
+import { LoaderModule } from './shared/loader/loader.module';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true
@@ -54,7 +55,8 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     AppConfigModule,
     NgxDatatableModule,
     ToastrModule.forRoot(),
-    SharedModule
+    SharedModule,
+    LoaderModule
   ],
   providers: [
     { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG },
