@@ -1,19 +1,19 @@
 <!-- <p>side-nav works!</p> -->
-<mat-nav-list>
-    <div class="user" *ngIf="isExpanded">
-        <div class="photo">
-            <img src="./../../../assets/images/users/5.jpg">
-        </div>
-        <div class="user-info">
-            <span> Tania Andrew </span>
-        </div>
+<div class="user">
+    <div class="photo" [ngStyle]="{'margin': isExpanded ? '20px 0px 100px 15px' : '20px 0px 10px 15px'}">
+        <img src="./../../../assets/images/users/5.jpg">
     </div>
+    <div class="user-info" *ngIf="isExpanded">
+        <span>Tania Andrew</span>
+    </div>
+</div>
+<mat-divider></mat-divider>
+<mat-nav-list>
     <div>
         <mat-list-item routerLink="/dashboard" routerLinkActive="selected">
-            <mat-icon mat-list-icon >account_circle</mat-icon>
+            <mat-icon mat-list-icon>account_circle</mat-icon>
             <span matLine *ngIf="isExpanded">Name</span>
         </mat-list-item>
-        <mat-divider></mat-divider>
         <mat-list-item routerLink="/inbox" routerLinkActive="selected">
             <mat-icon mat-list-icon>inbox</mat-icon>
             <span matLine *ngIf="isExpanded">Inbox</span>
@@ -26,7 +26,6 @@
             <mat-icon mat-list-icon>drafts</mat-icon>
             <span matLine *ngIf="isExpanded">Drafts</span>
         </mat-list-item>
-        <mat-divider></mat-divider>
         <mat-list-item routerLink="/allmail" routerLinkActive="selected">
             <mat-icon mat-list-icon>mail</mat-icon>
             <span matLine *ngIf="isExpanded">All Mail</span>
