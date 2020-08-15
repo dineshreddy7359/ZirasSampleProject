@@ -10,8 +10,6 @@ import { User } from 'src/app/models/user';
 export class FullComponent implements OnInit {
 
   isExpanded: boolean = false;
-  showSubMenu: boolean = false;
-  showSubSubMenu: boolean = false;
   currentUser: User;
 
   constructor(
