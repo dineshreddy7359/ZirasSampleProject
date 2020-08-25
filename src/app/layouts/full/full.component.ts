@@ -11,6 +11,7 @@ export class FullComponent implements OnInit {
 
   isExpanded: boolean = false;
   currentUser: User;
+  themeColor = 'blue';
 
   constructor(
     private authenticationService: AuthenticationService
@@ -23,6 +24,10 @@ export class FullComponent implements OnInit {
 
   onSidenavToggle() {
     this.isExpanded = !this.isExpanded;
+  }
+
+  themeChange(color) {
+    this.themeColor = color;
   }
 
 }

@@ -1,5 +1,5 @@
 <!-- <p>full works!</p> -->
-<div class="main-container" fxLayout="column" [ngClass]="{'purple': false, 'blue': true, 'red': false, 'green': false, 'dark': false}">
+<div class="main-container" fxLayout="column" [ngClass]="themeColor">
     <mat-toolbar class="toolbar-shade" color="primary">
 		<mat-toolbar-row>
             <span>Angular Material Template</span>
@@ -31,6 +31,17 @@
 		<mat-sidenav-content class="main-content">
             <perfect-scrollbar>
                 <body class="mat-typography">
+                    <div class="theme-color-change">
+                        <button mat-fab color="primary" [matMenuTriggerFor]="theme"><mat-icon class="icon-rotation">settings</mat-icon></button>
+                        <mat-menu #theme="matMenu">
+                            <div class="btn-wrapper">
+                              <button mat-fab class="btn btn-blue" style="background-color: #2196f3;" (click)="themeChange('blue')">blue</button>
+                              <button mat-fab class="btn btn-purple" style="background-color: #9c27b0;" (click)="themeChange('purple')">purple</button>
+                              <button mat-fab class="btn btn-red" style="background-color: #ec0d0d;" (click)="themeChange('red')">red</button>
+                              <button mat-fab class="btn btn-green" style="background-color: #009688;" (click)="themeChange('green')">green</button>
+                            </div>
+                        </mat-menu>
+                    </div>
                     <router-outlet></router-outlet>
                 </body>
             </perfect-scrollbar>

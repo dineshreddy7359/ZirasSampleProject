@@ -8,32 +8,26 @@ Main Styles And Import Other Styles
 @import 'app';
 @import 'spinner';
 
-/* Dark Theme */
-// @import 'colors/dark';
-// .dark {  
-//     @include angular-material-theme($dark-app-theme);
-// }
-
-/* Red Theme */
-// @import 'colors/red';
-// .red {  
-//     @include angular-material-theme($red-app-theme);
-// }
+/* Purple Theme */
+.purple {
+    @import 'colors/purple.scss';
+    @include angular-material-theme($purple-app-theme);
+}
 
 /* Green Theme */
-// @import 'colors/green';
-// .green {  
-//     @include angular-material-theme($green-app-theme);
-// }
+.green {
+    @import 'colors/green.scss';
+    @include angular-material-theme($green-app-theme);
+}
 
-/* Purple Theme */
-// @import 'colors/purple';
-// .purple {
-//     @include angular-material-theme($purple-app-theme);
-// }
+/* Red Theme */
+.red {
+    @import 'colors/red.scss';
+    @include angular-material-theme($red-app-theme);
+}
 
 /* Blue Theme */
-@import 'colors/blue';
-.blue {  
+.blue {
+    @import 'colors/blue.scss';
     @include angular-material-theme($blue-app-theme);
 }

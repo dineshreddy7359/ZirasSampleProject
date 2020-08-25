@@ -9,16 +9,18 @@ $green-app-warn: mat-palette($mat-pink);
 $green-app-theme: mat-light-theme($green-app-primary, $green-app-accent, $green-app-warn);
 $themecolor: #009688;
 $themecolor-alt: #009688;
-$white: #fff;
-$grey: #777879;
-$yellow: #EEEE00;
+@include angular-material-theme($green-app-theme);
+
 $selected: #151414;
 $hover: #cccccc;
+$white: #fff;
+$grey: #777879;
+
 #sidebar {
     background-color: $grey;
     color: $white;
     .mat-list-item .mat-list-icon {
-        background: $yellow;
+        background: $themecolor-alt;
         color: $white;
     }
     .mat-list-text {
@@ -50,6 +52,10 @@ $hover: #cccccc;
     .menu-button.rotated {
         transform: rotate(180deg);
     }
+}
+mat-toolbar {
+    color: $white;
+    background-color: $themecolor-alt;
 }
 footer {
     color: $white;
