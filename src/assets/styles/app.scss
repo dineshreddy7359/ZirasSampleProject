@@ -518,8 +518,8 @@ html body {
     .text-primary {
         color: $primary;
     }
-    .text-megna {
-        color: $megna;
+    .text-green {
+        color: $green;
     }
     .text-dark {
         color: $bodytext;
@@ -566,8 +566,8 @@ background colors
     background-color: #828b94;
 }
 
-.bg-megna-custom {
-    background-color: $megna !important;
+.bg-green-custom {
+    background-color: $green !important;
 }
 
 .bg-inverse-custom {
@@ -575,8 +575,8 @@ background colors
 }
 
 html body {
-    .bg-megna {
-        background-color: $megna !important;
+    .bg-green {
+        background-color: $green !important;
     }
     .bg-theme {
         background-color: $themecolor;
@@ -687,7 +687,7 @@ Labels
 }
 
 .label-custom {
-    background-color: $megna;
+    background-color: $green;
 }
 
 .label-success {
@@ -706,8 +706,8 @@ Labels
     background-color: $danger;
 }
 
-.label-megna {
-    background-color: $megna;
+.label-green {
+    background-color: $green;
 }
 
 .label-primary {
@@ -754,9 +754,9 @@ Labels
     color: $danger;
 }
 
-.label-light-megna {
-    background-color: $light-megna;
-    color: $megna;
+.label-light-green {
+    background-color: $light-green;
+    color: $green;
 }
 
 .label-light-primary {
