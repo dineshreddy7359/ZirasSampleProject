@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { User } from 'src/app/models/user';
 
@@ -11,10 +11,10 @@ export class FullComponent implements OnInit {
 
   isExpanded: boolean = false;
   currentUser: User;
-  themeColor = 'blue';
+  themeColor: any;
 
-  constructor(
-    private authenticationService: AuthenticationService
+  constructor(private authenticationService: AuthenticationService,
+    private cd: ChangeDetectorRef
   ) {
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
   }
@@ -26,8 +26,12 @@ export class FullComponent implements OnInit {
     this.isExpanded = !this.isExpanded;
   }
 
-  themeChange(color) {
+  themeColorChange(color) {
     this.themeColor = color;
+  }
+
+  ngAfterViewInit() {
+    this.cd.detectChanges();
   }
 
 }

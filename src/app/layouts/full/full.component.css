@@ -32,29 +32,3 @@
     height: 86.1vh;
     overflow-y: auto;
 }
-
-.theme-color-change {
-    position: fixed;
-    top: 40%;
-    right: 23px;
-    width: 48px;
-    height: 48px;
-    line-height: 48px;
-    text-align: center;
-    cursor: pointer;
-    opacity: .9;
-    z-index: 998;
-}
-
-@keyframes rotate {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-}
-
-.icon-rotation {
-    animation: rotate 3s linear infinite;
-}

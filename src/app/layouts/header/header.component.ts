@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/services/authentication.service';
 import { UserService } from 'src/app/services/user.service';
 import { User } from 'src/app/models/user';
+import { Cookie } from 'ng2-cookies';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +15,8 @@ export class HeaderComponent implements OnInit {
   @Input() headerName: any;
   currentUser: User;
   users = [];
+  themeColor: any;
+  @Output() theme: EventEmitter<any> = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -24,7 +27,16 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.themeColor = 'blue';
+    Cookie.set('theme-color', this.themeColor);
+    this.theme.emit(this.themeColor);
     this.loadAllUsers();
+  }
+
+  themeChange(color) {
+    this.themeColor = color;
+    Cookie.set('theme-color', this.themeColor);
+    this.theme.emit(this.themeColor);
   }
 
   loadAllUsers() {

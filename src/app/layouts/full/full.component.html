@@ -6,7 +6,7 @@
             <div class="spacer"></div>
             <!-- The following app header items will be hidden on both SM and XS screen sizes -->
             <div fxShow="true" fxHide.lt-md="true">
-                <app-header [headerName]="'toolbar'"></app-header>
+                <app-header (theme)="themeColorChange($event)" [headerName]="'toolbar'"></app-header>
             </div>
             <span>
                 <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
@@ -20,7 +20,7 @@
 		<!-- The following app header items will be shown on both SM and XS screen sizes -->
         <mat-sidenav #sidenav position="end">
             <mat-nav-list fxShow="true" fxHide.gt-sm>
-                <app-header [headerName]="'container'"></app-header>
+                <app-header (theme)="themeColorChange($event)" [headerName]="'container'"></app-header>
             </mat-nav-list>
         </mat-sidenav>
 		<mat-sidenav #sidebar id="sidebar" mode="side" opened="true" (mouseenter)="onSidenavToggle()" (mouseleave)="onSidenavToggle()">
@@ -31,17 +31,6 @@
 		<mat-sidenav-content class="main-content">
             <perfect-scrollbar>
                 <body class="mat-typography">
-                    <div class="theme-color-change">
-                        <button mat-fab color="primary" [matMenuTriggerFor]="theme"><mat-icon class="icon-rotation">settings</mat-icon></button>
-                        <mat-menu #theme="matMenu">
-                            <div class="btn-wrapper">
-                              <button mat-fab class="btn btn-blue" style="background-color: #2196f3;" (click)="themeChange('blue')">blue</button>
-                              <button mat-fab class="btn btn-purple" style="background-color: #9c27b0;" (click)="themeChange('purple')">purple</button>
-                              <button mat-fab class="btn btn-red" style="background-color: #ec0d0d;" (click)="themeChange('red')">red</button>
-                              <button mat-fab class="btn btn-green" style="background-color: #009688;" (click)="themeChange('green')">green</button>
-                            </div>
-                        </mat-menu>
-                    </div>
                     <router-outlet></router-outlet>
                 </body>
             </perfect-scrollbar>
