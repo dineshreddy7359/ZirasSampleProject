@@ -16,7 +16,7 @@
         </mat-toolbar-row>
 	</mat-toolbar>
 
-	<mat-sidenav-container>
+	<mat-sidenav-container fxFlex="100%">
 		<!-- The following app header items will be shown on both SM and XS screen sizes -->
         <mat-sidenav #sidenav position="end">
             <mat-nav-list fxShow="true" fxHide.gt-sm>
@@ -36,5 +36,7 @@
             </perfect-scrollbar>
         </mat-sidenav-content>
     </mat-sidenav-container>
-    <app-footer></app-footer>
+    <div fxFlex="3.4%">
+        <app-footer></app-footer>
+    </div>
 </div>

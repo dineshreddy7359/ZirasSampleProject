@@ -29,6 +29,5 @@
 
 .main-content {
     margin-left: 70px;
-    height: 86.1vh;
-    overflow-y: auto;
+    overflow: hidden;
 }
