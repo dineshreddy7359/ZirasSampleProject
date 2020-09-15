@@ -1,6 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FullComponent } from './full.component';
+import { FullComponent } from 'src/app/layouts/full/full.component';
 
 describe('FullComponent', () => {
   let component: FullComponent;

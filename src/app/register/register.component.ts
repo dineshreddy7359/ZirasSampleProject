@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationService } from '../services/authentication.service';
-import { UserService } from '../services/user.service';
+import { AuthenticationService } from 'src/app/services/authentication.service';
+import { UserService } from 'src/app/services/user.service';
 import { ToastrMessageModel } from 'src/app/toastr.model';
 import { MESSAGE_TYPE_SUCCESS, MESSAGE_TYPE_ERROR } from 'src/app/app-config/app.constants';
 import { AlertService } from 'src/app/services/alert.service';

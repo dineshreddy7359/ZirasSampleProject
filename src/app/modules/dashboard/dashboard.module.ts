@@ -6,8 +6,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
-import { DashboardRoutes } from './dashboard-routing';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardRoutes } from 'src/app/modules/dashboard/dashboard-routing';
+import { DashboardComponent } from 'src/app/modules/dashboard/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [

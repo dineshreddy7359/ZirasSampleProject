@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import * as constants from './../app-config/app.constants';
+import * as constants from 'src/app/app-config/app.constants';
 
 @Injectable({
   providedIn: 'root'

@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import * as CanvasJS from './../../../../assets/scripts/canvasjs.min';
-import { COLORS, NAMES } from './../../../app-config/app.constants';
+import * as CanvasJS from 'src/assets/scripts/canvasjs.min';
+import { COLORS, NAMES } from 'src/app/app-config/app.constants';
 
 export interface UserData {
   id: string;
