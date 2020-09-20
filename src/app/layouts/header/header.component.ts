@@ -24,11 +24,11 @@ export class HeaderComponent implements OnInit {
     private userService: UserService
   ) {
     this.currentUser = this.authenticationService.currentUserValue;
+    this.themeColor = localStorage.getItem('theme-color');
+    Cookie.set('theme-color', this.themeColor);
   }
 
   ngOnInit() {
-    this.themeColor = 'blue';
-    Cookie.set('theme-color', this.themeColor);
     this.theme.emit(this.themeColor);
     this.loadAllUsers();
   }
@@ -36,6 +36,7 @@ export class HeaderComponent implements OnInit {
   themeChange(color) {
     this.themeColor = color;
     Cookie.set('theme-color', this.themeColor);
+    localStorage.setItem('theme-color', this.themeColor);
     this.theme.emit(this.themeColor);
   }
 
