@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const config = require('./../../config/keys');
-var users = require('./../../schemaModels/users');
+const config = require('./../config/keys');
+var users = require('./../schemaModels/users');
 
 /* get users list. */
 router.get('/getUserDetails', (req, res, next) => {

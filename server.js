@@ -1,4 +1,4 @@
-const app = require('./src/app/server/app');
+const app = require('./src/server/app');
 // const http = require('http');
 // const ip = require('quick-local-ip');
 // const dns = require('dns');

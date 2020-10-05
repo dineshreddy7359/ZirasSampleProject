@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const jwt = require('jsonwebtoken');
-const config = require('./../../config/keys');
+const config = require('./../config/keys');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
-var users = require('./../../schemaModels/users');
+var users = require('./../schemaModels/users');
 
 router.use(passport.initialize());
 router.use(passport.session());

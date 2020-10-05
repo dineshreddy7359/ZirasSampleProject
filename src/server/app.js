@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-const config = require('./../../config/keys');
+const config = require('./../config/keys');
 const MongoStore = require('connect-mongo')(session);
 var flash = require('express-flash');
 
