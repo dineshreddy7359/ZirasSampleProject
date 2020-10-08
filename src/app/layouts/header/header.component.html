@@ -6,30 +6,50 @@
         </button>
         <mat-menu #theme="matMenu">
             <div class="btn-wrapper">
-              <button mat-fab class="btn btn-blue" style="background-color: #2196f3;" (click)="themeChange('blue')">blue</button>
-              <button mat-fab class="btn btn-purple" style="background-color: #9c27b0;" (click)="themeChange('purple')">purple</button>
-              <button mat-fab class="btn btn-red" style="background-color: #ec0d0d;" (click)="themeChange('red')">red</button>
-              <button mat-fab class="btn btn-green" style="background-color: #009688;" (click)="themeChange('green')">green</button>
+              <button mat-fab class="btn btn-blue" style="background-color: #795548;" (click)="themeChange('brown')">Brown</button>
+              <button mat-fab class="btn btn-purple" style="background-color: #9C27B0;" (click)="themeChange('purple')">Purple</button>
+              <button mat-fab class="btn btn-red" style="background-color: #F44336;" (click)="themeChange('red')">Red</button>
+              <button mat-fab class="btn btn-green" style="background-color: #4CAF50;" (click)="themeChange('green')">Green</button>
             </div>
         </mat-menu>
     </a>
     <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
-        <button mat-icon-button matTooltip="Home">
-            <mat-icon>home</mat-icon>
+        <button mat-icon-button matTooltip="Practice">
+            <mat-icon>supervised_user_circle</mat-icon>
         </button>
     </a>
     <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
-        <button mat-icon-button matTooltip="Notifications">
-            <mat-icon>notifications</mat-icon>
+        <button mat-icon-button matTooltip="Team">
+            <mat-icon>groups</mat-icon>
         </button>
     </a>
     <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
-        <button mat-icon-button matTooltip="Settings">
-            <mat-icon>settings</mat-icon>
+        <button mat-icon-button matTooltip="Patients">
+            <mat-icon>people</mat-icon>
         </button>
     </a>
     <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
-        <button mat-icon-button matTooltip="Logout" (click)="logout()">
+        <button mat-icon-button matTooltip="Referrals">
+            <mat-icon>people_alt</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Bundles">
+            <mat-icon>layers</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Listings">
+            <mat-icon>format_list_numbered</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Analytics">
+            <mat-icon>analytics</mat-icon>
+        </button>
+    </a>
+    <a [ngClass]="headerName == 'container' ? 'mat-list-item' : ' '">
+        <button mat-icon-button matTooltip="Blanche Profile" (click)="logout()">
             <mat-icon>account_circle</mat-icon>
         </button>
     </a>

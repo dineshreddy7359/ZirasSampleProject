@@ -26,8 +26,8 @@ Main Styles And Import Other Styles
     @include angular-material-theme($red-app-theme);
 }
 
-/* Blue Theme */
-.blue {
-    @import 'colors/blue.scss';
-    @include angular-material-theme($blue-app-theme);
+/* Brown Theme */
+.brown {
+    @import 'colors/brown.scss';
+    @include angular-material-theme($brown-app-theme);
 }
