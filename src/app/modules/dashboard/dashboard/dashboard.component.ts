@@ -1,16 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
+import { Component, OnInit } from '@angular/core';
 import * as CanvasJS from 'src/assets/scripts/canvasjs.min';
-import { COLORS, NAMES } from 'src/app/app-config/app.constants';
-
-export interface UserData {
-  id: string;
-  name: string;
-  progress: string;
-  color: string;
-}
 
 @Component({
   selector: 'app-dashboard',
@@ -19,65 +8,107 @@ export interface UserData {
 })
 export class DashboardComponent implements OnInit {
 
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
-  displayedColumns = ['id', 'name', 'progress', 'color'];
-  dataSource: MatTableDataSource<UserData>;
-
-  constructor() {
-    const users: UserData[] = [];
-    for (let i = 1; i <= 100; i++) { users.push(createNewUser(i)); }
-    // Assign the data to the data source for the table to render
-    this.dataSource = new MatTableDataSource(users);
-  }
+  constructor() {}
 
   ngOnInit() {
-    let chart1 = new CanvasJS.Chart("columnChart", {
-      theme: "light2",
+    let chart1 = new CanvasJS.Chart("lineChart1", {
+      theme: "light1",
       animationEnabled: true,
       exportEnabled: true,
-      title: {
-        text: "Basic Column Chart in Angular"
+      axisX: {
+        prefix: "$",
+        suffix: "K"
+      },
+      axisY: {
+        title: "12 months Utilization Trend",
+        prefix: "$",
+        suffix: "K"
+      },
+      toolTip: {
+        shared: true
+      },
+      legend: {
+        cursor: "pointer",
+        verticalAlign: "bottom",
+        horizontalAlign: "center",
+        dockInsidePlotArea: true
       },
       data: [{
-        type: "column",
+        type:"line",
+        name: "San Fransisco",
+        showInLegend: true,
+        dataPoints: [		
+          { x: 240, y: 850 },
+          { x: 280, y: 889 },
+          { x: 300, y: 890 },
+          { x: 340, y: 899 },
+          { x: 460, y: 903 },
+          { x: 560, y: 925 }
+        ]
+      },
+      {
+        type: "line",
+        name: "Seatle",
+        showInLegend: true,
         dataPoints: [
-          { y: 71, label: "Apple" },
-          { y: 55, label: "Mango" },
-          { y: 50, label: "Orange" },
-          { y: 65, label: "Banana" },
-          { y: 95, label: "Pineapple" },
-          { y: 68, label: "Pears" },
-          { y: 28, label: "Grapes" },
-          { y: 34, label: "Lychee" },
-          { y: 14, label: "Jackfruit" }
+          { x: 250, y: 409 },
+          { x: 290, y: 415 },
+          { x: 350, y: 419 },
+          { x: 380, y: 429 },
+          { x: 480, y: 429 },
+          { x: 580, y: 450 }
         ]
       }]
     });
       
     chart1.render();
 
-    let chart2 = new CanvasJS.Chart("pieChart", {
+    let chart2 = new CanvasJS.Chart("lineChart2", {
       theme: "light2",
       animationEnabled: true,
       exportEnabled: true,
-      title:{
-        text: "Basic Pie Chart in Angular"
+      axisX: {
+        prefix: "$",
+        suffix: "K"
+      },
+      axisY: {
+        title: "12 months Utilization Trend",
+        prefix: "$",
+        suffix: "K"
+      },
+      toolTip: {
+        shared: true
+      },
+      legend: {
+        cursor: "pointer",
+        verticalAlign: "bottom",
+        horizontalAlign: "center",
+        dockInsidePlotArea: true
       },
       data: [{
-        type: "pie",
+        type:"line",
+        name: "Los Angeles",
         showInLegend: true,
-        toolTipContent: "<b>{name}</b>: ${y} (#percent%)",
-        indexLabel: "{name} - #percent%",
+        dataPoints: [		
+          { x: 240, y: 850 },
+          { x: 280, y: 889 },
+          { x: 300, y: 890 },
+          { x: 340, y: 899 },
+          { x: 460, y: 903 },
+          { x: 560, y: 925 }
+        ]
+      },
+      {
+        type: "line",
+        name: "Manhattan",
+        showInLegend: true,
         dataPoints: [
-          { y: 450, name: "Food" },
-          { y: 120, name: "Insurance" },
-          { y: 300, name: "Traveling" },
-          { y: 800, name: "Housing" },
-          { y: 150, name: "Education" },
-          { y: 150, name: "Shopping"},
-          { y: 250, name: "Others" }
+          { x: 250, y: 409 },
+          { x: 290, y: 415 },
+          { x: 350, y: 419 },
+          { x: 380, y: 429 },
+          { x: 480, y: 429 },
+          { x: 580, y: 450 }
         ]
       }]
     });
@@ -85,29 +116,4 @@ export class DashboardComponent implements OnInit {
     chart2.render();
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
-  }
-
-  applyFilter(filterValue: string) {
-    filterValue = filterValue.trim(); // Remove whitespace
-    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
-    this.dataSource.filter = filterValue;
-  }
-
-}
-
-/** Builds and returns a new User. */
-function createNewUser(id: number): UserData {
-  const name =
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))] + ' ' +
-      NAMES[Math.round(Math.random() * (NAMES.length - 1))].charAt(0) + '.';
-
-  return {
-    id: id.toString(),
-    name: name,
-    progress: Math.round(Math.random() * 100).toString(),
-    color: COLORS[Math.round(Math.random() * (COLORS.length - 1))]
-  };
 }

@@ -12,89 +12,93 @@
     <div>
         <mat-list-item routerLink="/dashboard" routerLinkActive="selected">
             <mat-icon mat-list-icon>account_circle</mat-icon>
-            <span matLine *ngIf="isExpanded">Name</span>
+            <span matLine *ngIf="isExpanded">DocMe Dashboard</span>
         </mat-list-item>
-        <mat-list-item routerLink="/inbox" routerLinkActive="selected">
-            <mat-icon mat-list-icon>inbox</mat-icon>
-            <span matLine *ngIf="isExpanded">Inbox</span>
+        <mat-list-item routerLink="/practice" routerLinkActive="selected">
+            <mat-icon mat-list-icon>supervised_user_circle</mat-icon>
+            <span matLine *ngIf="isExpanded">Practice</span>
         </mat-list-item>
-        <mat-list-item routerLink="/starred" routerLinkActive="selected">
-            <mat-icon mat-list-icon>star</mat-icon>
-            <span matLine *ngIf="isExpanded">Starred</span>
+        <mat-list-item routerLink="/team" routerLinkActive="selected">
+            <mat-icon mat-list-icon>groups</mat-icon>
+            <span matLine *ngIf="isExpanded">Team</span>
         </mat-list-item>
-        <mat-list-item routerLink="/drafts" routerLinkActive="selected">
-            <mat-icon mat-list-icon>drafts</mat-icon>
-            <span matLine *ngIf="isExpanded">Drafts</span>
+        <mat-list-item routerLink="/patients" routerLinkActive="selected">
+            <mat-icon mat-list-icon>people</mat-icon>
+            <span matLine *ngIf="isExpanded">Patients</span>
         </mat-list-item>
-        <mat-list-item routerLink="/allmail" routerLinkActive="selected">
-            <mat-icon mat-list-icon>mail</mat-icon>
-            <span matLine *ngIf="isExpanded">All Mail</span>
+        <mat-list-item routerLink="/referrals" routerLinkActive="selected">
+            <mat-icon mat-list-icon>people_alt</mat-icon>
+            <span matLine *ngIf="isExpanded">Referrals</span>
         </mat-list-item>
-        <mat-list-item routerLink="/trash" routerLinkActive="selected">
-            <mat-icon mat-list-icon>delete</mat-icon>
-            <span matLine *ngIf="isExpanded">Trash</span>
+        <mat-list-item routerLink="/bundles" routerLinkActive="selected">
+            <mat-icon mat-list-icon>layers</mat-icon>
+            <span matLine *ngIf="isExpanded">Bundles</span>
         </mat-list-item>
-        <mat-list-item routerLink="/spam" routerLinkActive="selected">
-            <mat-icon mat-list-icon>warning</mat-icon>
-            <span matLine *ngIf="isExpanded">Spam</span>
+        <mat-list-item routerLink="/listings" routerLinkActive="selected">
+            <mat-icon mat-list-icon>format_list_numbered</mat-icon>
+            <span matLine *ngIf="isExpanded">Listings</span>
+        </mat-list-item>
+        <mat-list-item routerLink="/analytics" routerLinkActive="selected">
+            <mat-icon mat-list-icon>analytics</mat-icon>
+            <span matLine *ngIf="isExpanded">Analytics</span>
         </mat-list-item>
         <mat-list-item (click)="showSubMenu = !showSubMenu" class="parent">
             <mat-icon mat-list-icon>home</mat-icon>
-            <span matLine *ngIf="isExpanded">Parent Menu</span>
+            <span matLine *ngIf="isExpanded">Sub Items 1</span>
             <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubMenu}" *ngIf="isExpanded">expand_more</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showSubMenu}" *ngIf="isExpanded && showSubMenu">
             <mat-list-item routerLink="/delete" routerLinkActive="selected">
                 <mat-icon mat-list-icon>delete</mat-icon>
-                <span matLine *ngIf="isExpanded">Trash</span>
+                <span matLine *ngIf="isExpanded">Item 1</span>
             </mat-list-item>
             <mat-list-item routerLink="/spam" routerLinkActive="selected">
                 <mat-icon mat-list-icon>warning</mat-icon>
-                <span matLine *ngIf="isExpanded">Spam</span>
+                <span matLine *ngIf="isExpanded">Item 2</span>
             </mat-list-item>
             <mat-list-item (click)="showSubSubMenu = !showSubSubMenu" class="parent">
                 <mat-icon mat-list-icon>home</mat-icon>
-                <span matLine *ngIf="isExpanded">Nested Menu</span>
+                <span matLine *ngIf="isExpanded">Nested Sub Items</span>
                 <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu}" *ngIf="isExpanded">expand_more</mat-icon>
             </mat-list-item>
             <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu}" *ngIf="isExpanded && showSubSubMenu">
                 <mat-list-item routerLink="/delete" routerLinkActive="selected">
                     <mat-icon mat-list-icon>delete</mat-icon>
-                    <span matLine *ngIf="isExpanded">Trash</span>
+                    <span matLine *ngIf="isExpanded">Item 3</span>
                 </mat-list-item>
                 <mat-list-item routerLink="/spam" routerLinkActive="selected">
                     <mat-icon mat-list-icon>warning</mat-icon>
-                    <span matLine *ngIf="isExpanded">Spam</span>
+                    <span matLine *ngIf="isExpanded">Item 4</span>
                 </mat-list-item>
             </div>
         </div>
 		<mat-list-item (click)="showSubMenu1 = !showSubMenu1" class="parent">
             <mat-icon mat-list-icon>home</mat-icon>
-            <span matLine *ngIf="isExpanded">Parent Menu</span>
+            <span matLine *ngIf="isExpanded">Sub Items 2</span>
             <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubMenu1}" *ngIf="isExpanded">expand_more</mat-icon>
         </mat-list-item>
         <div class="submenu" [ngClass]="{'expanded' : showSubMenu1}" *ngIf="isExpanded && showSubMenu1">
             <mat-list-item routerLink="/delete" routerLinkActive="selected">
                 <mat-icon mat-list-icon>delete</mat-icon>
-                <span matLine *ngIf="isExpanded">Trash</span>
+                <span matLine *ngIf="isExpanded">Item 5</span>
             </mat-list-item>
             <mat-list-item routerLink="/spam" routerLinkActive="selected">
                 <mat-icon mat-list-icon>warning</mat-icon>
-                <span matLine *ngIf="isExpanded">Spam</span>
+                <span matLine *ngIf="isExpanded">Item 6</span>
             </mat-list-item>
             <mat-list-item (click)="showSubSubMenu1 = !showSubSubMenu1" class="parent">
                 <mat-icon mat-list-icon>home</mat-icon>
-                <span matLine *ngIf="isExpanded">Nested Menu</span>
+                <span matLine *ngIf="isExpanded">Nested Sub Items</span>
                 <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubSubMenu1}" *ngIf="isExpanded">expand_more</mat-icon>
             </mat-list-item>
             <div class="submenu" [ngClass]="{'expanded' : showSubSubMenu1}" *ngIf="isExpanded && showSubSubMenu1">
                 <mat-list-item routerLink="/delete" routerLinkActive="selected">
                     <mat-icon mat-list-icon>delete</mat-icon>
-                    <span matLine *ngIf="isExpanded">Trash</span>
+                    <span matLine *ngIf="isExpanded">Item 7</span>
                 </mat-list-item>
                 <mat-list-item routerLink="/spam" routerLinkActive="selected">
                     <mat-icon mat-list-icon>warning</mat-icon>
-                    <span matLine *ngIf="isExpanded">Spam</span>
+                    <span matLine *ngIf="isExpanded">Item 8</span>
                 </mat-list-item>
             </div>
         </div>
