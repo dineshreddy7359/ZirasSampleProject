@@ -53,7 +53,7 @@
     "ng2-cookies": "^1.0.12",
     "ngx-perfect-scrollbar": "^9.0.0",
     "ngx-toastr": "^13.0.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "quick-local-ip": "^1.0.7",
